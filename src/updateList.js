@@ -28,7 +28,7 @@ function updateBookList() {
             let tempDiv = document.createElement("div");
             let tempDivImg = document.createElement("img");
 
-            tempDivImg.setAttribute("src", "../assets/images.jpg")
+            tempDivImg.setAttribute("src", "/assets/images.jpg")
             tempDivImg.setAttribute("title", `Name: ${tempName}, Author: ${tempAuthor}, Pages: ${tempPages}`)
 
             tempDiv.setAttribute("class", "animateBook");
