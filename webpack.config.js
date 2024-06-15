@@ -14,6 +14,19 @@ module.exports = {
             {
                 test: /\.css$/, // Process CSS files
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i, // Process image files
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/', // Output images to the 'assets' folder in 'dist'
+                            publicPath: 'assets/', // Public URL address of the output files
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -28,7 +41,7 @@ module.exports = {
     ],
     devtool: 'source-map', // Generate source maps for easier debugging
     devServer: {
-        contentBase: path.join(__dirname, 'dist'), // Serve content from the 'dist' directory
+        static: path.join(__dirname, 'dist'), // Serve content from the 'dist' directory
         compress: true, // Enable gzip compression
         port: 9000 // Port to run the development server
     }
